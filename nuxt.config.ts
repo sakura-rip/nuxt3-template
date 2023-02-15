@@ -6,8 +6,15 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/i18n'
   ],
-
-  css: [],
+  css: [
+    '~/assets/css/tailwind.css'
+  ],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
   app: {
     head: {
       titleTemplate: '%s - PROJECT',
@@ -15,7 +22,7 @@ export default defineNuxtConfig({
       meta: [
         {name: "description", content: "ThisIsDescription"}
       ],
-      link: [{ rel: 'icon', href: '/favicon.ico' }],
+      link: [{rel: 'icon', href: '/favicon.ico'}],
     }
   },
   vite: {

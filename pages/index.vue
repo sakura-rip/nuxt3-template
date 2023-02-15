@@ -5,7 +5,7 @@
     <p v-if="error">{{ error }}</p>
     <p v-if="pending">Loading...</p>
     <ul>
-      <li v-for="post in data" :key="post.id">
+      <li v-for="post in data" :key="post.id" class="text-red-800 underline">
         <NuxtLink :to="`/posts/${post.id}`">{{ post.title }}</NuxtLink>
       </li>
     </ul>
