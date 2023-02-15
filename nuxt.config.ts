@@ -18,6 +18,16 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', href: '/favicon.ico' }],
     }
   },
+  vite: {
+    define: {
+      'process.env.DEBUG': false,
+    },
+    server: {
+      watch: {
+        usePolling: true
+      }
+    },
+  },
 
   imports: {
     dirs: ['stores'],
