@@ -1,13 +1,22 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import vuetify from 'vite-plugin-vuetify'
+
 export default defineNuxtConfig({
   ssr: false,
 
+  css: ['vuetify/lib/styles/main.sass'],
+
   modules: [
     '@pinia/nuxt',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
   ],
-
-  css: [],
+  build: {
+    transpile: ['vuetify'],
+  },
+  hooks: {
+    'vite:extendConfig': (config) => {
+      config.plugins!.push(vuetify())
+    },
+  },
   app: {
     head: {
       titleTemplate: '%s - PROJECT',
@@ -15,7 +24,7 @@ export default defineNuxtConfig({
       meta: [
         {name: "description", content: "ThisIsDescription"}
       ],
-      link: [{ rel: 'icon', href: '/favicon.ico' }],
+      link: [{rel: 'icon', href: '/favicon.ico'}],
     }
   },
   vite: {
